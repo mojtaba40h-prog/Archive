@@ -1,5 +1,4 @@
 name: Build Maid Garden APK
-
 on:
   workflow_dispatch:
     inputs:
