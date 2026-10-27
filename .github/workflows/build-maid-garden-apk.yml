@@ -38,7 +38,7 @@ jobs:
                       resolved = (target / entry.filename).resolve()
                       if not resolved.is_relative_to(target.resolve()):
                           raise SystemExit('Unsafe archive path')
-                  z.extractall(target)
+                      z.extractall(target)
               matches = list(target.rglob('android/settings.gradle'))
               if len(matches) != 1:
                   raise SystemExit('The archive must contain exactly one android/settings.gradle file.')
@@ -56,6 +56,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: "11.0"
 
       - name: Install Android platform
         run: sdkmanager "platforms;android-35" "build-tools;34.0.0"
